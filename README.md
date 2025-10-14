@@ -9,6 +9,7 @@ LangChain Example Python Code
 | 02_openai_chat_completion.py | OpenAI chat via openai lib   |
 | 03_openai_langchain_chat.py  | OpenAI chat via LangChain    |
 | 04_streamlit_langchain_chat.py | Streamlit UI for OpenAI chat |
+| 05_streamlit_gdp_llm.py        | Streamlit: LLM US GDP chart  |
 
 ## Get the code
 
@@ -53,10 +54,21 @@ Important: issue the above command in the same terminal window where you issues 
 print("Hello, LangChain!")
 ```
 
+
 Run it with:
 
 ```bash
-python 01-hellopython.py
+python 01_hello_python.py
+```
+
+---
+
+## Streamlit US GDP Chart Example
+
+To run the Streamlit app that fetches and plots US GDP (last 5 years) using an LLM:
+
+```bash
+streamlit run 05_streamlit_gdp_llm.py
 ```
 
 ## Install brew on Mac
