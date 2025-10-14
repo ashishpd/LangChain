@@ -3,13 +3,13 @@ LangChain Example Python Code
 
 ## Python Scripts Overview
 
-| Script Name                  | Description                  |
-|------------------------------|------------------------------|
-| 01_hello_python.py           | Hello world print            |
-| 02_openai_chat_completion.py | OpenAI chat via openai lib   |
-| 03_openai_langchain_chat.py  | OpenAI chat via LangChain    |
-| 04_streamlit_langchain_chat.py | Streamlit UI for OpenAI chat |
-| 05_streamlit_gdp_llm.py        | Streamlit: LLM US GDP chart  |
+| Script Name                  | Description                  | Video Link |
+|------------------------------|------------------------------|------------|
+| 01_hello_python.py           | Hello world print            | https://youtu.be/9lkY-pp62II |
+| 02_openai_chat_completion.py | OpenAI chat via openai lib   | TBD        |
+| 03_openai_langchain_chat.py  | OpenAI chat via LangChain    | TBD        |
+| 04_streamlit_langchain_chat.py | Streamlit UI for OpenAI chat | TBD        |
+| 05_streamlit_gdp_llm.py        | Streamlit: LLM US GDP chart  | TBD        |
 
 ## Get the code
 
