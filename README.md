@@ -1,6 +1,14 @@
 # LangChain
 LangChain Example Python Code
 
+## Python Scripts Overview
+
+| Script Name                  | Description                  |
+|------------------------------|------------------------------|
+| 01_hello_python.py           | Hello world print            |
+| 02_openai_chat_completion.py | OpenAI chat via openai lib   |
+| 03_openai_langchain_chat.py  | OpenAI chat via LangChain    |
+
 ## Get the code
 
 You can either create a local folder named `LangChain` and work there, or clone this repository directly.
@@ -70,8 +78,8 @@ If you're on macOS you can install Python 3.11 via Homebrew:
 brew install python@3.11
 ```
 
-Notes:
-- On Apple Silicon (M1/M2) Homebrew installs to `/opt/homebrew`; on Intel it is `/usr/local`.
+
+
 
 
 
