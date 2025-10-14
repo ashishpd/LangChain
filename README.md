@@ -8,6 +8,7 @@ LangChain Example Python Code
 | 01_hello_python.py           | Hello world print            |
 | 02_openai_chat_completion.py | OpenAI chat via openai lib   |
 | 03_openai_langchain_chat.py  | OpenAI chat via LangChain    |
+| 04_streamlit_langchain_chat.py | Streamlit UI for OpenAI chat |
 
 ## Get the code
 
