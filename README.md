@@ -22,6 +22,12 @@ In the future, re-activate the virtual environment with:
 source .venv/bin/activate
 ```
 
+After activating the virtual environment, install the project dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
 If you don't have Python installed yet, install Homebrew first and then install Python (see the "Install brew on Mac" section below).
 
 4. Make sure you have an OpenAI API key. Then add it to your environment (example):
@@ -52,6 +58,7 @@ Install Homebrew by running the official installer in a terminal:
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+It will ask you to type sudo password. Make sure to close the Terminal and start a new one.
 
 If you're on Linux or Windows, use your platform's package manager (apt, yum, choco, winget, etc.), or install Homebrew on Linux if you prefer.
 
