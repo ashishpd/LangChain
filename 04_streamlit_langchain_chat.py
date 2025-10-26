@@ -5,6 +5,7 @@ Requirements:
 - pip install streamlit langchain langchain-openai openai
 - Set OPENAI_API_KEY in your environment
 """
+
 import streamlit as st
 from langchain_openai import ChatOpenAI
 

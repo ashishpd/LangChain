@@ -5,6 +5,7 @@ Requirements:
 - pip install langchain openai
 - Set OPENAI_API_KEY in your environment
 """
+
 from langchain_openai import ChatOpenAI
 
 # You can also use langchain.chat_models.ChatOpenAI in older versions

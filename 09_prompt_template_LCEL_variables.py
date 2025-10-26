@@ -1,6 +1,7 @@
-from langchain_openai import AzureChatOpenAI
 import os
+
 from langchain_core.prompts import PromptTemplate
+from langchain_openai import AzureChatOpenAI
 
 prompt = PromptTemplate.from_template("Write a motto about {topic}.")
 llm = AzureChatOpenAI(

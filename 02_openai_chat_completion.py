@@ -1,4 +1,5 @@
 import os
+
 from openai import OpenAI
 
 # Ensure API key is present
