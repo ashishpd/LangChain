@@ -10,6 +10,7 @@ LangChain Example Python Code
 | 03_openai_langchain_chat.py  | OpenAI chat via LangChain    | TBD        |
 | 04_streamlit_langchain_chat.py | Streamlit UI for OpenAI chat | TBD        |
 | 05_streamlit_gdp_llm.py        | Streamlit: LLM US GDP chart  | TBD        |
+| 11_ollama.py | install and run gemma3:270m on mac | https://www.youtube.com/watch?v=IUGO8-CawGA https://www.youtube.com/watch?v=NFzaVfFn09o
 
 ## Get the code
 
