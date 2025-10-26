@@ -91,6 +91,17 @@ If you're on macOS you can install Python 3.11 via Homebrew:
 brew install python@3.11
 ```
 
+## Install Ollama
+Download Ollama
+Open Terminal and run
+ollama list -- to see models already downloaded
+ollama pull gemma3:270m -- gets the gemma3:270m model
+ollama run gemma3:270m -- runs the gemma3:270m model
+ollama ps -- shows the running models
+ollama stop gemma3:270m -- stops the gemma3:270m model
+
+
+
 
 
 
