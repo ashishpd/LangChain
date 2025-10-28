@@ -1,6 +1,6 @@
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_ollama import ChatOllama
 from langchain_core.output_parsers import StrOutputParser
+from langchain_ollama import ChatOllama
 
 llm = ChatOllama(model="gemma3:270m")
 
@@ -11,5 +11,3 @@ messages = [
 
 for token in llm.stream(messages):
     print(token.content, end="|")
-
-
