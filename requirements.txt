@@ -10,3 +10,4 @@ langchain-ollama>=0.1.0
 black>=25.0.0
 isort>=6.0.0
 langchain-tavily>=0.1.0
+pypdf>=5.0.0
