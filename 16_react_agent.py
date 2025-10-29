@@ -29,10 +29,13 @@ config = {"configurable": {"thread_id": "conversation_1"}}
 response = app.invoke(
     {
         "messages": [
-            ("user", "What is the capital of France? And what is the weather like there?")
+            (
+                "user",
+                "What is the capital of France? And what is the weather like there?",
+            )
         ]
     },
-    config=config
+    config=config,
 )
 
 # Print the final output
