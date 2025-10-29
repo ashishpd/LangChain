@@ -4,7 +4,6 @@ from typing import Optional
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_ollama import ChatOllama
 from langchain_openai import AzureChatOpenAI
-from openai import AzureOpenAI
 from pydantic import BaseModel
 
 
