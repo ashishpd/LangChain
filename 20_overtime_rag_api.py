@@ -8,8 +8,12 @@ from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import PromptTemplate
-from langchain_openai import (AzureChatOpenAI, AzureOpenAIEmbeddings,
-                              ChatOpenAI, OpenAIEmbeddings)
+from langchain_openai import (
+    AzureChatOpenAI,
+    AzureOpenAIEmbeddings,
+    ChatOpenAI,
+    OpenAIEmbeddings,
+)
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from pydantic import BaseModel
 from reportlab.lib.pagesizes import letter
