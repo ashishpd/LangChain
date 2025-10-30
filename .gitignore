@@ -1,3 +1,9 @@
+# Chroma vector store persistence
+.chroma/
+.chroma_*/
+.chroma-rag*/
+.chroma_rag*/
+.chroma_rag_resume*/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
