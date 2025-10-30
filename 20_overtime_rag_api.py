@@ -4,17 +4,16 @@ from typing import Dict, Optional
 
 import httpx
 from fastapi import FastAPI
+from langchain_chroma import Chroma
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import PromptTemplate
+from langchain_openai import (AzureChatOpenAI, AzureOpenAIEmbeddings,
+                              ChatOpenAI, OpenAIEmbeddings)
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from pydantic import BaseModel
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
-
-from langchain_openai import AzureOpenAIEmbeddings, AzureChatOpenAI, OpenAIEmbeddings, ChatOpenAI
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader
-from langchain_chroma import Chroma
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import PromptTemplate
-
 
 POLICY_PDF = Path(__file__).parent / "20_policy_overtime.pdf"
 PERSIST_BASE = str(Path(__file__).parent / ".chroma_overtime")
@@ -41,13 +40,17 @@ def ensure_policy_pdf() -> None:
 
 def make_embeddings():
     if os.getenv("AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT"):
-        return AzureOpenAIEmbeddings(azure_deployment=os.environ["AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT"])
+        return AzureOpenAIEmbeddings(
+            azure_deployment=os.environ["AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT"]
+        )
     return OpenAIEmbeddings()
 
 
 def make_llm():
     if os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"):
-        return AzureChatOpenAI(azure_deployment=os.environ["AZURE_OPENAI_DEPLOYMENT_NAME"], temperature=0)
+        return AzureChatOpenAI(
+            azure_deployment=os.environ["AZURE_OPENAI_DEPLOYMENT_NAME"], temperature=0
+        )
     return ChatOpenAI(temperature=0, model="gpt-4o-mini")
 
 
@@ -67,7 +70,9 @@ def build_or_load_index() -> Chroma:
     pages = loader.load()
     splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=120)
     docs = splitter.split_documents(pages)
-    vs = Chroma.from_documents(docs, embedding=embeddings, persist_directory=persist_dir)
+    vs = Chroma.from_documents(
+        docs, embedding=embeddings, persist_directory=persist_dir
+    )
     return vs
 
 
@@ -135,12 +140,14 @@ async def ask(req: AskRequest) -> Dict[str, str]:
         "Answer in one short paragraph and cite the multiplier explicitly (e.g., 1.25x)."
     )
     chain = prompt | llm | parser
-    answer = chain.invoke({
-        "context": context,
-        "user": req.user,
-        "years": years,
-        "question": req.question,
-    })
+    answer = chain.invoke(
+        {
+            "context": context,
+            "user": req.user,
+            "years": years,
+            "question": req.question,
+        }
+    )
 
     return {
         "answer": answer,
@@ -157,5 +164,3 @@ if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run("20_overtime_rag_api:app", host="0.0.0.0", port=8000, reload=False)
-
-

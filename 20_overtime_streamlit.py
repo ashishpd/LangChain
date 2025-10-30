@@ -3,7 +3,6 @@ import os
 import httpx
 import streamlit as st
 
-
 API_BASE = os.getenv("OVERTIME_API_BASE", "http://localhost:8000")
 
 
@@ -59,5 +58,3 @@ if st.button("Get years from HR"):
         st.exception(e)
 
 st.caption("Set OVERTIME_API_BASE to override the API base URL.")
-
-

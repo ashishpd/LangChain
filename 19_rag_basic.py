@@ -1,13 +1,13 @@
 import os
+from operator import itemgetter
 from pathlib import Path
 
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader
 from langchain_chroma import Chroma
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import AzureChatOpenAI, AzureOpenAIEmbeddings
-from operator import itemgetter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
 def build_vectorstore(persist_dir: str) -> Chroma:
@@ -108,7 +108,10 @@ def main():
         print("\n=== Question ===\n", q)
         # For quick visibility, show top retrieved docs
         top_docs = vs.similarity_search(q, k=3)
-        print(f"Retrieved {len(top_docs)} docs. First snippet: ", (top_docs[0].page_content[:180] + "...") if top_docs else "<none>")
+        print(
+            f"Retrieved {len(top_docs)} docs. First snippet: ",
+            (top_docs[0].page_content[:180] + "...") if top_docs else "<none>",
+        )
         answer = chain.invoke({"question": q})
         print("\n--- Answer ---\n", answer)
 
