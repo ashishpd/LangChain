@@ -1,11 +1,12 @@
 # __main__.py
 import uvicorn
-from a2a.types import AgentSkill, AgentCapabilities, AgentCard
+
 from a2a.server.apps import A2AStarletteApplication
 from a2a.server.request_handlers import DefaultRequestHandler
 from a2a.server.tasks import InMemoryTaskStore
-
+from a2a.types import AgentCapabilities, AgentCard, AgentSkill
 from agent_executor import HelloWorldAgentExecutor  # your module
+
 
 def make_agent_card(host: str = "localhost", port: int = 9999) -> AgentCard:
     # define the skill
@@ -32,6 +33,7 @@ def make_agent_card(host: str = "localhost", port: int = 9999) -> AgentCard:
     )
     return agent_card
 
+
 def main(host: str = "0.0.0.0", port: int = 9999):
     card = make_agent_card(host, port)
 
@@ -49,6 +51,7 @@ def main(host: str = "0.0.0.0", port: int = 9999):
 
     # Run the ASGI server
     uvicorn.run(server_app.build(), host=host, port=port)
+
 
 if __name__ == "__main__":
     main()
