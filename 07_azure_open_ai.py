@@ -5,9 +5,9 @@ from openai import AzureOpenAI
 deployment = os.environ["AZURE_OPENAI_DEPLOYMENT_NAME"]
 
 client = AzureOpenAI(
-    api_version=os.environ["AZURE_OPENAI_API_VERSION"],
+    api_version=os.environ["OPENAI_API_VERSION"],
     azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
-    api_key=os.environ["AZURE_OPENAI_API_KEY"],
+    api_key=os.environ["OPENAI_API_KEY"],
 )
 
 response = client.chat.completions.create(
