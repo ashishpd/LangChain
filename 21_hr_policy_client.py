@@ -1,3 +1,29 @@
+"""
+INTERVIEW STYLE Q&A:
+
+Q: How do you build a client for an intent-routed RAG system?
+A: Create a Streamlit UI that sends questions to an API that routes them based on intent
+   (HR queries, policy queries, or hybrid). The client displays answers along with debug
+   information showing intent classification and data sources used.
+
+Q: What is intent routing in RAG systems?
+A: Intent routing classifies questions into categories (HR, policy, hybrid) and uses
+   different data sources and prompts for each. This ensures questions are answered
+   using the most relevant information and appropriate processing logic.
+
+Q: Why show debug information in the client?
+A: Debug info (intent, facts used, policy snippets) helps users understand how the system
+   arrived at answers. It's useful for troubleshooting, transparency, and building trust
+   in the AI system's reasoning.
+
+Q: How do you handle different response types from the API?
+A: The API returns structured JSON with answer, intent, facts, and metadata. The client
+   conditionally displays different sections based on what's available, providing a
+   flexible UI that adapts to different response types.
+
+SAMPLE CODE:
+"""
+
 import os
 
 import httpx

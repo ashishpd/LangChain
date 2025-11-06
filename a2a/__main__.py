@@ -1,3 +1,30 @@
+"""
+INTERVIEW STYLE Q&A:
+
+Q: What is A2A (Agent-to-Agent) and how does it work?
+A: A2A is a protocol for agents to communicate with each other. It defines how agents
+   advertise their capabilities (via AgentCard), how clients discover agents, and how
+   messages are exchanged. It enables building multi-agent systems where agents
+   collaborate.
+
+Q: What is an AgentCard?
+A: AgentCard is metadata that describes an agent's capabilities - what skills it has,
+   what inputs/outputs it supports, and how to communicate with it. Clients use
+   AgentCards to discover and interact with agents.
+
+Q: How do you create an A2A server?
+A: (1) Define AgentCard with skills and capabilities, (2) Create an AgentExecutor
+   that implements your agent logic, (3) Wrap it in a RequestHandler, (4) Create
+   A2AStarletteApplication with the card and handler, (5) Run with uvicorn.
+
+Q: What's the benefit of using A2A?
+A: A2A provides: (1) Standardized agent communication protocol, (2) Capability
+   discovery (agents advertise what they can do), (3) Interoperability (agents from
+   different systems can communicate), (4) Scalability (distributed agent networks).
+
+SAMPLE CODE:
+"""
+
 # __main__.py
 import uvicorn
 from agent_executor import HelloWorldAgentExecutor  # your module

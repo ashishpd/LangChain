@@ -1,3 +1,28 @@
+"""
+INTERVIEW STYLE Q&A:
+
+Q: How do you add authentication to a RAG client application?
+A: Implement login flow that gets a JWT token from the API, store it in session state,
+   and include it in Authorization headers for subsequent API calls. The token proves
+   the user's identity and grants access to protected resources.
+
+Q: What is JWT (JSON Web Token) and why use it?
+A: JWT is a compact, URL-safe token format that contains user identity and permissions.
+   It's stateless (server doesn't need to store sessions), scalable, and works well
+   for API authentication. Tokens are signed to prevent tampering.
+
+Q: How do you manage authentication state in Streamlit?
+A: Use st.session_state to store the token and user info across page reruns. Check
+   if token exists before allowing API calls, and provide a login UI when not authenticated.
+
+Q: What's the flow for authenticated API calls?
+A: (1) User logs in, gets JWT token, (2) Token stored in session state, (3) API calls
+   include token in Authorization: Bearer <token> header, (4) API validates token and
+   enforces permissions based on user roles.
+
+SAMPLE CODE:
+"""
+
 import os
 
 import httpx

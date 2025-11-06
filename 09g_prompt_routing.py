@@ -1,9 +1,27 @@
 """
-09g_prompt_routing.py
+INTERVIEW STYLE Q&A:
 
-Demonstrates a lightweight routing prompt to choose which pipeline to use.
-We simulate three routes: policy-only, hr-only, hybrid. In production, you might
-replace this with a LangGraph node or tool-calling agent.
+Q: What is prompt routing?
+A: Prompt routing uses an LLM to classify user questions and route them to different
+   processing pipelines. For example, HR questions go to HR pipeline, policy questions
+   go to policy pipeline, and hybrid questions use both.
+
+Q: Why use routing instead of processing everything the same way?
+A: Different question types need different data sources, tools, or processing logic.
+   Routing ensures each question is handled by the most appropriate pipeline, improving
+   accuracy and efficiency.
+
+Q: How do you implement routing with prompts?
+A: Create a classification prompt that asks the LLM to categorize the question into
+   predefined routes. The prompt includes clear criteria and examples for each route.
+   This is a lightweight approach - for production, consider LangGraph or tool-calling agents.
+
+Q: What makes a good routing prompt?
+A: Clear criteria for each route, examples showing correct classifications, and handling
+   edge cases (like "unknown" for unrelated questions). The prompt should be unambiguous
+   so the model consistently routes questions correctly.
+
+SAMPLE CODE:
 """
 
 import os

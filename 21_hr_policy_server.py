@@ -1,3 +1,29 @@
+"""
+INTERVIEW STYLE Q&A:
+
+Q: How do you implement intent-based routing in a RAG system?
+A: Classify questions into categories (HR, policy, hybrid) using keyword matching or
+   LLM classification. Route to different processing pipelines: HR queries use HR data,
+   policy queries use RAG, hybrid queries combine both.
+
+Q: Why use different prompts for different intents?
+A: Different question types need different context and instructions. HR questions need
+   personal data handling, policy questions need document context, hybrid questions
+   need both. Separate prompts ensure each type is handled optimally.
+
+Q: How do you implement privacy controls in HR systems?
+A: Use field-level authorization - check if the caller has permission to access specific
+   fields (like salary, DOB). Implement role-based access control where managers/HR
+   can access more data than regular employees.
+
+Q: What's the benefit of intent routing vs single pipeline?
+A: Intent routing enables: (1) Optimized processing for each question type, (2) Better
+   privacy controls (HR data only when needed), (3) More accurate answers (right data
+   for right questions), (4) Easier debugging (know which pipeline handled the question).
+
+SAMPLE CODE:
+"""
+
 import os
 from pathlib import Path
 from typing import Dict, Optional

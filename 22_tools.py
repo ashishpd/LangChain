@@ -1,3 +1,29 @@
+"""
+INTERVIEW STYLE Q&A:
+
+Q: What are LangChain tools and how do you create them?
+A: Tools are functions that agents can call to perform actions (search, compute, retrieve).
+   Use the @tool decorator to convert regular functions into LangChain tools. Tools
+   have names, descriptions, and schemas that agents use to decide when to call them.
+
+Q: How do tools enforce authorization?
+A: Tools can check user permissions before executing. They receive caller information
+   (user, roles) and validate access based on field sensitivity and user roles.
+   This ensures only authorized users can access sensitive data.
+
+Q: What's the difference between tools and regular functions?
+A: Tools are structured for agent use - they have schemas, descriptions, and can be
+   discovered by agents. Regular functions are just code. Tools enable agents to
+   dynamically decide which actions to take based on the task.
+
+Q: How do you structure tools for a RAG system?
+A: Create separate tools for different operations: policy_retrieve (RAG search),
+   hr_get (fetch HR data with auth), compute_overtime (calculations). Each tool
+   handles one responsibility, making the system modular and testable.
+
+SAMPLE CODE:
+"""
+
 import os
 from pathlib import Path
 from typing import Dict, List

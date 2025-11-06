@@ -1,3 +1,29 @@
+"""
+INTERVIEW STYLE Q&A:
+
+Q: How do you create an MCP server using WebSockets?
+A: Use FastAPI's WebSocket support to create a WebSocket endpoint that handles
+   JSON-RPC 2.0 messages. Implement handlers for initialize, tools/list, and
+   tools/call methods following the MCP protocol.
+
+Q: What is JSON-RPC 2.0 and why does MCP use it?
+A: JSON-RPC 2.0 is a stateless, light-weight remote procedure call (RPC) protocol.
+   It provides a standard format for requests (method, params, id) and responses
+   (result or error). MCP uses it for tool discovery and execution.
+
+Q: How do you handle different MCP methods on the server?
+A: Parse incoming JSON-RPC messages, check the "method" field, and route to
+   appropriate handlers. Each method (initialize, tools/list, tools/call) has
+   specific request/response formats defined by the MCP protocol.
+
+Q: What makes a valid MCP tool?
+A: A tool needs: (1) A name, (2) A description, (3) An inputSchema defining
+   parameters (JSON Schema format). The server advertises tools via tools/list
+   and executes them via tools/call.
+
+SAMPLE CODE:
+"""
+
 import json
 from typing import Any, Dict
 

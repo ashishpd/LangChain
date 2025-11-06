@@ -1,3 +1,29 @@
+"""
+INTERVIEW STYLE Q&A:
+
+Q: How do you build a production RAG API with FastAPI?
+A: Combine FastAPI for the API layer, RAG for document retrieval, and external data
+   sources (like HR APIs) to create a complete system. The API retrieves policy context,
+   fetches user-specific data, and generates personalized answers.
+
+Q: How do you combine RAG with external data sources?
+A: (1) Use RAG to retrieve relevant policy documents, (2) Call external APIs (HR system)
+   to get user-specific data, (3) Combine both in the LLM prompt to generate answers
+   that are both policy-accurate and personalized.
+
+Q: What's the benefit of separating API and client?
+A: Separation allows: (1) Multiple clients (web, mobile, CLI) to use the same API,
+   (2) Independent scaling of API and UI, (3) Easier testing and maintenance,
+   (4) Reusability across different applications.
+
+Q: How do you handle user-specific calculations in RAG?
+A: Retrieve policy context via RAG, fetch user data from HR systems, then compute
+   user-specific values (like overtime multipliers) based on both. Include all this
+   information in the LLM prompt for accurate, personalized responses.
+
+SAMPLE CODE:
+"""
+
 import os
 from pathlib import Path
 from typing import Dict, Optional

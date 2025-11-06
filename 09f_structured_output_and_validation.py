@@ -1,10 +1,26 @@
 """
-09f_structured_output_and_validation.py
+INTERVIEW STYLE Q&A:
 
-Demonstrates:
-- Asking the model for JSON-structured output
-- Validating with Pydantic
-- Retrying on parse/validation failure
+Q: How do you get structured JSON output from an LLM?
+A: Ask the model explicitly to return JSON matching a schema, then parse and validate it.
+   You can use Pydantic models to define the schema and validate the output automatically.
+
+Q: Why validate LLM output with Pydantic?
+A: LLMs sometimes return malformed JSON or data that doesn't match your schema. Pydantic
+   validation catches these errors and ensures you get properly structured, typed data
+   that matches your expectations.
+
+Q: How do you handle validation failures?
+A: Implement retry logic - if parsing or validation fails, ask the model to correct the
+   output and try again. This is important because LLMs can make mistakes, but they can
+   often fix them when given feedback.
+
+Q: What's the benefit of using Pydantic Field constraints?
+A: Field constraints (like pattern matching, min/max values) ensure data quality beyond
+   just structure. For example, you can enforce that risk_level is only "low"/"medium"/"high"
+   or that deadline_days is between 1-180.
+
+SAMPLE CODE:
 """
 
 import json

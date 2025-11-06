@@ -1,3 +1,29 @@
+"""
+INTERVIEW STYLE Q&A:
+
+Q: How do you implement JWT authentication in a FastAPI RAG system?
+A: Use PyJWT to encode/decode tokens, FastAPI's HTTPBearer for token extraction,
+   and dependency injection to protect endpoints. Tokens contain user identity and
+   roles, which are used for authorization decisions.
+
+Q: How do you protect API endpoints with authentication?
+A: Create an auth dependency that extracts and validates the JWT token from the
+   Authorization header. Use Depends() to apply it to endpoints - requests without
+   valid tokens are rejected with 401 Unauthorized.
+
+Q: How do you implement role-based access control (RBAC)?
+A: Include roles in the JWT token payload. When tools/functions are called, check
+   if the user's roles have permission. Different roles (employee, manager, HR, admin)
+   have different access levels to sensitive data.
+
+Q: What's the benefit of using dependency injection for auth?
+A: Dependency injection makes auth reusable - define it once, apply to any endpoint
+   with Depends(). It keeps auth logic separate from business logic, making code
+   cleaner and easier to test.
+
+SAMPLE CODE:
+"""
+
 import importlib.util
 import os
 import time

@@ -1,11 +1,29 @@
 """
-09e_react_and_self_consistency.py
+INTERVIEW STYLE Q&A:
 
-Demonstrates:
-- ReAct-style loop (reason-act-observe) with a simple search/tool stub
-- Self-consistency: sample multiple CoT answers and choose majority
+Q: What is the ReAct (Reasoning + Acting) pattern?
+A: ReAct is an agent pattern where the LLM: (1) Reasons about what to do (Thought),
+   (2) Takes an action like calling a tool (Action), (3) Observes the result (Observation),
+   (4) Continues reasoning or provides a final answer. It combines thinking with tool use.
+
+Q: What is self-consistency and why is it useful?
+A: Self-consistency means generating multiple answers to the same question and choosing
+   the most common one (majority vote). This improves reliability because if the model
+   gives the same answer multiple times, it's more likely to be correct.
+
+Q: How do you implement a simple ReAct loop?
+A: (1) Prompt the model to think and optionally call a tool, (2) Parse the response to
+   detect tool calls, (3) Execute the tool, (4) Feed the observation back to get the
+   final answer. This is a simplified version - LangGraph provides more robust implementations.
+
+Q: When would you use self-consistency?
+A: Use it for: important decisions, when accuracy matters more than speed, or when you
+   can afford multiple API calls. It's especially useful for reasoning tasks where a single
+   answer might be wrong but the majority is likely correct.
 
 Note: This is a minimal, commented demonstration; for production, prefer LangGraph.
+
+SAMPLE CODE:
 """
 
 import os
